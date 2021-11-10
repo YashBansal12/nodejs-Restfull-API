@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h2>Student details (API)</h2>
+<p>It has the data of Student with id, name and department</p>
+<h2>Features</h2>
+<p>REST API has following functionalities:</p>
+<ul>
+<li>GET</li>
+<li>POST</li>
+<li>PUT</li>
+<li>PATCH</li>
+<li>DELETE</li>
+</ul>
+<h2>Prerequisites</h2>
+<h2>Installations</h2>
+<p>For this project the following modules are required to be installed as developer dependencies. Copy the given codes in terminal for installation of the modules</p>
+<p>To <a href="https://www.npmjs.com/package/jest">install</a> Jest for unit testing</p>
+<pre class="prettyprint source lang-Bash"><code>npm install --save-dev jest
+</code></pre>
+<p>To <a href="https://www.npmjs.com/package/axios">install</a> Axios to help with checking the endpoints of the API in unit testing</p>
+<pre class="prettyprint source lang-Bash"><code>npm install axios
+</code></pre>
+<p>To <a href="https://www.npmjs.com/package/jsdoc">install</a> Jsdoc for documentation</p>
+<pre class="prettyprint source lang-Bash"><code>npm install --save-dev jsdoc
+</code></pre>
+<p>To <a href="https://www.npmjs.com/package/swagger-jsdoc">install</a> Swagger-jsdoc to generate swagger documentation using jsdoc annotated source</p>
+<pre class="prettyprint source lang-Bash"><code>npm install swagger-jsdoc
+</code></pre>
+<p>To <a href="https://www.npmjs.com/package/swagger-ui-express">install</a> Swagger-ui-express to generate swagger-ui API documentation for express</p>
+<pre class="prettyprint source lang-Bash"><code>npm install swagger-ui-express
+</code></pre>
+<p>To <a href="https://www.npmjs.com/package/eslint">install</a> Eslint for linting</p>
+<pre class="prettyprint source lang-Bash"><code>npm install --save-dev eslint
+</code></pre>
+<h2>Configuration</h2>
+<p>Replace the following with the script object in package.json file</p>
+<pre class="prettyprint source lang-JSON"><code>&quot;scripts&quot;: {
+    &quot;test&quot;: &quot;jest --coverage --forceExit&quot;,
+    &quot;jsdoc&quot;: &quot;jsdoc -c jsdoc.json&quot;,
+    &quot;lint&quot;: &quot;eslint ./&quot;,
+    &quot;start&quot;: &quot;node ./src/server.js&quot;
+  }
+</code></pre>
+<h4><a href="https://jestjs.io/">Jest</a></h4>
+<p>Creat a test folder on the same hierarchy as the src folder if it does not exist and create test according to your requirements. The test file should follow the given naming convention <code> modulle_name.test.js</code>. If a test file already exist you can add your required test cases in that file</p>
+<h4><a href="https://axios-http.com/docs/intro">Axios</a></h4>
+<p>No specific COnfiuration is required for axios as it is as required depency for the <code> modulle_name.test.js</code> file to help chek the endpoints of the API.</p>
+<h4><a href="https://jsdoc.app/index.html">JsDoc</a></h4>
+<p>Create a jsdoc.jason file in the main folder and copy the below given default template</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;plugins&quot;: [&quot;plugins/markdown&quot;],
+  &quot;recurseDepth&quot;: 10,
+  &quot;source&quot;: {
+    &quot;include&quot;: [&quot;src&quot;],
+    &quot;includePattern&quot;: &quot;.js$&quot;,
+    &quot;excludePattern&quot;: &quot;(node_modules/|jsdoc)&quot;
+  },
+  &quot;sourceType&quot;: &quot;module&quot;,
+  &quot;tags&quot;: {
+    &quot;allowUnknownTags&quot;: true,
+    &quot;dictionaries&quot;: [&quot;jsdoc&quot;, &quot;closure&quot;]
+  },
+  &quot;templates&quot;: {
+    &quot;default&quot;: {
+      &quot;outputSourceFiles&quot;: false
+    },
+    &quot;cleverLinks&quot;: true,
+    &quot;monospaceLinks&quot;: true
+  },
+  &quot;opts&quot;: {
+    &quot;destination&quot;: &quot;./jsdoc&quot;,
+    &quot;recurse&quot;: true,
+    &quot;readme&quot;: &quot;./readme.md&quot;
+  }
+}
+</code></pre>
+<h4><a href="https://swagger.io/docs/">Swagger</a></h4>
+<p>The specification required for Swagger documentation is done in the main moudule file. In it we have to specify the server where the documentation is hosted and the route for the documentation with the information about the module</p>
+<h4><a href="https://eslint.org/">Eslint</a></h4>
+<p>Run the given code in terminal to intialize eslint in the project</p>
+<pre class="prettyprint source lang-Bash"><code>./node_modules/.bin/eslint --init
+</code></pre>
+<p>Copy the Following in rules of the eslint config file to get no linting errors</p>
+<pre class="prettyprint source lang-JSON"><code>{
+     &quot;semi&quot;: [&quot;error&quot;, &quot;always&quot;],
+    &quot;no-use-before-define&quot;: &quot;error&quot;,
+    &quot;linebreak-style&quot;: 0,
+    &quot;indent&quot;: [&quot;error&quot;, 4, { &quot;SwitchCase&quot;: 1 }],
+    &quot;comma-dangle&quot;: [2, &quot;always-multiline&quot;],
+    &quot;no-restricted-globals&quot;: [&quot;error&quot;, &quot;event&quot;, &quot;fdescribe&quot;]
+}
+</code></pre>
+<p>Create a .eslintignore file and copy the following in it</p>
+<pre class="prettyprint source"><code>/node_modules
+</code></pre>
+<h2>Run the components</h2>
+<h4>Jest</h4>
+<p>To run Jest for unit testing run the given command in your terminal</p>
+<pre class="prettyprint source lang-Bash"><code>npm run test
+</code></pre>
+<p>This will run all the files in the test folder to check all the test cases and also provide you with the code coverage</p>
+<h4>Jsdoc</h4>
+<p>To run Jsdoc for documentation run the given command in your terminal</p>
+<pre class="prettyprint source lang-Bash"><code>npm run jsdoc
+</code></pre>
+<p>This will create teh documentation folder in the main folder wher you can find the index.html for all the documentaion</p>
+<h4>Eslint</h4>
+<p>To run Jsdoc for linting the folder run the given command in your terminal</p>
+<pre class="prettyprint source lang-Bash"><code>npm run lint
+</code></pre>
+<p>This lint all the files except those in the .eslintignore file for any linting error present</p></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#delete">delete</a></li><li><a href="global.html#get">get</a></li><li><a href="global.html#patch">patch</a></li><li><a href="global.html#post">post</a></li><li><a href="global.html#put">put</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Mon Nov 08 2021 19:11:19 GMT+0530 (India Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

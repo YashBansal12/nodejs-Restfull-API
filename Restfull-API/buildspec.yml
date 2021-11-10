@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - aws codeartifact login --tool npm --domain syscloud --domain-owner 538782569624 --repository sandbox
+      - echo Executing second part of Install Phase
+      - npm init -y
+      - npm install --save-dev jest
+      - npm install --save-dev jsdoc
+      - npm install --save-dev eslint
+      - npm install swagger-jsdoc
+  build:
+    commands:
+      - echo Executing Build Phase
+      - npm run test
+      - npm run jsdoc
+      - npm publish
+  post_build:
+    commands:
+      - echo Executing Post Build Phase
+      - aws s3 cp jsdoc s3://sys-sandbox-artifacts/Yash_API/ArithmeticOperations/jsdoc --recursive
+      - aws s3 cp coverage s3://sys-sandbox-artifacts/Yash_API/ArithmeticOperations/coverage --recursive
